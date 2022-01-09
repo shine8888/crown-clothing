@@ -11,7 +11,6 @@ import CartDropDown from "../cart-dropdown/cart-dropdown.component";
 import "./header.styles.scss";
 
 const Header = ({ currentUser, hidden }) => {
-  console.log(currentUser, " check current suer");
   return (
     <div className="header">
       <Link className="logo-container" to="/">

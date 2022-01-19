@@ -10,12 +10,17 @@ export const selectShopSections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
   [selectShopSections],
-  (collections) => Object.keys(collections).map((key) => collections[key])
+  (collections) =>
+    collections ? Object.keys(collections).map((key) => collections[key]) : []
 );
 
 export const selectCollection = memoize((collectionUrlParmam) =>
-  createSelector(
-    [selectShopSections],
-    (collections) => collections[collectionUrlParmam]
+  createSelector([selectShopSections], (collections) =>
+    collections ? collections[collectionUrlParmam] : null
   )
+);
+
+export const selectIsCollectionsFetching = createSelector(
+  [selectShop],
+  (shop) => shop.isFetching
 );
